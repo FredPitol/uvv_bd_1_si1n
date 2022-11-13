@@ -1,3 +1,46 @@
+--Deletando database caso exista 
+DROP DATABASE IF EXISTS uvv
+;
+--Deletando user caso exista
+DROP USER IF EXISTS fredericopitol
+;
+--Deletando schema caso exista
+DROP SCHEMA IF EXISTS hr
+;
+-- Criando usuário
+CREATE USER fredericopitol WITH 
+SUPERUSER
+ENCRYPTED PASSWORD 'frederico'
+;
+-- Criando banco de dados
+CREATE DATABASE uvv
+WITH 
+OWNER = fredericopitol
+ENCODING = 'UTF8'
+TEMPLATE = template0
+LC_COLLATE = 'pt_BR.UTF-8'
+LC_CTYPE = 'pt_BR.UTF-8'
+ALLOW_CONNECTIONS = True
+;
+--Comentário
+COMMENT ON DATABASE uvv
+    IS 'Banco de dados para PSET1'
+;
+-- path do usuário fredericopitol para o esquema  hr
+ALTER USER fredericopitol
+SET SEARCH_PATH TO hr, "$user", public
+;
+-- Me conectando no banco de dados uvv, com meu usuario.
+
+\c "dbname=uvv user=fredericopitol password=frederico"
+
+-- Criando SCHEMA dentro do banco de dados UVV
+
+CREATE SCHEMA hr
+	AUTHORIZATION fredericopitol;
+
+--Criando tabela com os continentes, adicionando aks, comentando colunas
+
 CREATE TABLE hr.regioes (
                 id_regiao INTEGER NOT NULL,
                 nome VARCHAR(25) NOT NULL,
@@ -13,8 +56,9 @@ CREATE INDEX regioes_idx
 
 CREATE UNIQUE INDEX regioes_idx1
  ON hr.regioes
- ( nome );
-
+ ( nome )
+ ;
+--Criando tabela paises, adicionando PK e AK e comentando cada atributo
 CREATE TABLE hr.paises (
                 id_pais CHAR(2) NOT NULL,
                 nome VARCHAR(50) NOT NULL,
@@ -31,6 +75,7 @@ CREATE UNIQUE INDEX paises_idx
  ON hr.paises
  ( nome );
 
+--Criando tabela localizações, adicionando chave primária e comentando cada atributo
 CREATE TABLE hr.localizacoes (
                 id_localizacao INTEGER NOT NULL,
                 endereco VARCHAR(50),
@@ -47,9 +92,9 @@ COMMENT ON COLUMN hr.localizacoes.endereco IS 'endereco da empresa';
 COMMENT ON COLUMN hr.localizacoes.cep IS 'Codigo postal da localizacao';
 COMMENT ON COLUMN hr.localizacoes.cidade IS 'Cidade onde está localizado o departamento.';
 COMMENT ON COLUMN hr.localizacoes.uf IS 'Estado(abreviado ou por extenso)';
-COMMENT ON COLUMN hr.localizacoes.id_pais IS 'Chave estrangeira para a tabela de países.';
-
-
+COMMENT ON COLUMN hr.localizacoes.id_pais IS 'Chave estrangeira para a tabela de países.'
+;
+--Criando tabela cargos, adicionando chave primária e comentando cada atributo
 CREATE TABLE hr.cargos (
                 id_cargo VARCHAR(10) NOT NULL,
                 cargo VARCHAR(35) NOT NULL,
@@ -66,7 +111,9 @@ COMMENT ON COLUMN hr.cargos.salario_maximo IS 'O maior salário admitido para um
 
 CREATE UNIQUE INDEX cargos_idx
  ON hr.cargos
- ( cargo );
+ ( cargo )
+ ;
+--Criando tabela empregados, adicionando PK e AK e comentando cada atributo
 
 CREATE TABLE hr.empregados (
                 pk_id_empregado INTEGER NOT NULL,
@@ -98,8 +145,9 @@ CREATE INDEX empregados_idx
 
 CREATE UNIQUE INDEX empregados_idx1
  ON hr.empregados
- ( email );
-
+ ( email )
+ ;
+--Criando tabela departamentos, adicionando PK e AK e comentando cada atributo
 CREATE TABLE hr.departamentos (
                 id_departamento INTEGER NOT NULL,
                 nome VARCHAR(50) NOT NULL,
@@ -118,6 +166,7 @@ CREATE UNIQUE INDEX departamentos_idx
  ON hr.departamentos
  ( nome );
 
+--Criando tabela historico_cargos, adicionando chave composta e comentando cada atributo
 CREATE TABLE hr.historico_cargos (
                 data_inicial DATE NOT NULL,
                 pfk_id_empregado INTEGER NOT NULL,
@@ -136,6 +185,7 @@ COMMENT ON COLUMN hr.historico_cargos.data_final IS 'e a data inicial.';
 COMMENT ON COLUMN hr.historico_cargos.id_cargo IS 'Chave primária da tabela';
 COMMENT ON COLUMN hr.historico_cargos.id_departamento IS 'Identificador do departamento';
 
+-- Adicionando as FKS
 
 ALTER TABLE hr.paises ADD CONSTRAINT regioes_paises_fk
 FOREIGN KEY (id_regiao)
