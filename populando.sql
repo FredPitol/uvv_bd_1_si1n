@@ -384,8 +384,8 @@ Desabilitando constraint empregados_gerente_fk para inserção dos dados,
 já que os dados de empregados ainda não foram adicionados
 */
 
-ALTER TABLE departamentos 
-  DISABLE CONSTRAINT empregados_gerente_fk;
+	
+ALTER TABLE departamentos DISABLE TRIGGER ALL;
 
 INSERT INTO departamentos VALUES 
         ( 10                --id departamento
@@ -577,138 +577,10 @@ INSERT INTO departamentos VALUES
         );
 
 
+
 -- Populando tabela cargos
 
-INSERT INTO cargos VALUES 
-        ( 'AD_PRES'
-        , 'President'
-        , 20080
-        , 40000
-        );
-INSERT INTO cargos VALUES 
-        ( 'AD_VP'
-        , 'Administration Vice President'
-        , 15000
-        , 30000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'AD_ASST'
-        , 'Administration Assistant'
-        , 3000
-        , 6000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'FI_MGR'
-        , 'Finance Manager'
-        , 8200
-        , 16000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'FI_ACCOUNT'
-        , 'Accountant'
-        , 4200
-        , 9000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'AC_MGR'
-        , 'Accounting Manager'
-        , 8200
-        , 16000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'AC_ACCOUNT'
-        , 'Public Accountant'
-        , 4200
-        , 9000
-        );
-INSERT INTO cargos VALUES 
-        ( 'SA_MAN'
-        , 'Sales Manager'
-        , 10000
-        , 20080
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'SA_REP'
-        , 'Sales Representative'
-        , 6000
-        , 12008
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'PU_MAN'
-        , 'Purchasing Manager'
-        , 8000
-        , 15000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'PU_CLERK'
-        , 'Purchasing Clerk'
-        , 2500
-        , 5500
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'ST_MAN'
-        , 'Stock Manager'
-        , 5500
-        , 8500
-        );
-INSERT INTO cargos VALUES 
-        ( 'ST_CLERK'
-        , 'Stock Clerk'
-        , 2008
-        , 5000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'SH_CLERK'
-        , 'Shipping Clerk'
-        , 2500
-        , 5500
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'IT_PROG'
-        , 'Programmer'
-        , 4000
-        , 10000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'MK_MAN'
-        , 'Marketing Manager'
-        , 9000
-        , 15000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'MK_REP'
-        , 'Marketing Representative'
-        , 4000
-        , 9000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'HR_REP'
-        , 'Human Resources Representative'
-        , 4000
-        , 9000
-        );
-
-INSERT INTO cargos VALUES 
-        ( 'PR_REP'
-        , 'Public Relations Representative'
-        , 4500
-        , 10500
-        );
-
+120
 
 --Populando tabela empregados
 
@@ -2255,10 +2127,10 @@ VALUES  (200
         , 90
         );
 
-REM enable integrity constraint to DEPARTAMENTOS
 
-ALTER TABLE departamentos
-  ENABLE CONSTRAINT empregados_gerente_fk;
+
+-- Ativando restrições de integridade da tabela departamentos
+ALTER TABLE departamentos ENABLE TRIGGER ALL;
 
 COMMIT;
 
