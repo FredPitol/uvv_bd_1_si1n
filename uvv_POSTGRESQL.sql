@@ -125,9 +125,10 @@ CREATE TABLE hr.empregados (
                 id_cargo VARCHAR(10) NOT NULL,
                 salario NUMERIC(8,2),
                 id_supervisor INTEGER,
-                comissao NUMERIC(4,2),
-                CONSTRAINT pk_id_empregado PRIMARY KEY (pk_id_empregado)
-);
+                comissao NUMERIC(4,2), 
+                id_empregado_delete integer,
+                CONSTRAINT pk_id_empregado PRIMARY KEY (pk_id_empregado))
+                ;
 COMMENT ON TABLE hr.empregados IS 'Informações dos empregados';
 COMMENT ON COLUMN hr.empregados.pk_id_empregado IS 'Chave primária da tabela';
 COMMENT ON COLUMN hr.empregados.nome IS 'Nome completo do empregado';
@@ -169,8 +170,8 @@ CREATE UNIQUE INDEX departamentos_idx
 
 --Criando tabela historico_cargos, adicionando chave composta e comentando cada atributo
 CREATE TABLE hr.historico_cargos (
-                data_inicial DATE NOT NULL,
                 pfk_id_empregado INTEGER NOT NULL,
+                data_inicial DATE NOT NULL,
                 data_final DATE NOT NULL,
                 id_cargo VARCHAR(10) NOT NULL,
                 id_departamento INTEGER NOT NULL,
