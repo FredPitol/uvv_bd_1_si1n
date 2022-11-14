@@ -40,6 +40,9 @@ estar em um departamento.
  - A cardinalidade do auto-relacionamento da tabela empregados de **id_empregados** para **id_supervisor** foi trocada **1:1** para **0:1**
  já que se o supervisor for o empregado em questão, ele não obrigatoriamente terá um supervisor.
 
+### 
+- A tabela historico_cargos é uma tabela auxiliar, feita para resolver uma relação de N:M
+
 
 ----------------
 
