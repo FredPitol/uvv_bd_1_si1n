@@ -21,3 +21,4 @@ NVL(TO_CHAR(commission_pct), 'null') || ', ' ||
 NVL(TO_CHAR(manager_id), 'null') || ', ' ||
 NVL(TO_CHAR(department_id), 'null') || ');'
 FROM employees;
+

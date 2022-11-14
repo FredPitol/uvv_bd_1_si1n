@@ -125,8 +125,8 @@ CREATE TABLE hr.empregados (
                 id_cargo VARCHAR(10) NOT NULL,
                 salario NUMERIC(8,2),
                 id_supervisor INTEGER,
-                comissao NUMERIC(4,2), 
-                id_empregado_delete INTEGER,
+                comissao NUMERIC(8,2), 
+                id_empregado_delete INTEGER, -- atributo para receber inputs do schema hr e depois ser deletado
                 CONSTRAINT pk_id_empregado PRIMARY KEY (pk_id_empregado))
                 ;
 COMMENT ON TABLE hr.empregados IS 'Informações dos empregados';
