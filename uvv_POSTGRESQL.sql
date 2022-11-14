@@ -126,7 +126,7 @@ CREATE TABLE hr.empregados (
                 salario NUMERIC(8,2),
                 id_supervisor INTEGER,
                 comissao NUMERIC(4,2), 
-                id_empregado_delete integer,
+                id_empregado_delete INTEGER,
                 CONSTRAINT pk_id_empregado PRIMARY KEY (pk_id_empregado))
                 ;
 COMMENT ON TABLE hr.empregados IS 'Informações dos empregados';
