@@ -380,13 +380,14 @@ INSERT INTO hr.localizacoes VALUES
 
 
 /*
-Desabilitando constraint hr.empregados_gerente_fk para inserção dos dados, 
+Desabilitando constraint hr.empregados_gerente_fk, hr.empregado_empregado_fk 
+para inserção dos dados, 
 já que os dados de hr.empregados ainda não foram adicionados
 */
 
 	
 ALTER TABLE hr.departamentos DISABLE TRIGGER ALL;
-
+ALTER TABLE hr.empregados DISABLE TRIGGER ALL;
 INSERT INTO hr.departamentos VALUES 
         ( 10                --id departamento
         , 'Administration'  --nome
@@ -576,13 +577,140 @@ INSERT INTO hr.departamentos VALUES
         , 1700
         );
 
+--Populando tabela cargos
+INSERT INTO hr.cargos VALUES 
+        ( 'AD_PRES'
+        , 'President'
+        , 20080
+        , 40000
+        );
+INSERT INTO hr.cargos VALUES 
+        ( 'AD_VP'
+        , 'Administration Vice President'
+        , 15000
+        , 30000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'AD_ASST'
+        , 'Administration Assistant'
+        , 3000
+        , 6000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'FI_MGR'
+        , 'Finance Manager'
+        , 8200
+        , 16000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'FI_ACCOUNT'
+        , 'Accountant'
+        , 4200
+        , 9000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'AC_MGR'
+        , 'Accounting Manager'
+        , 8200
+        , 16000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'AC_ACCOUNT'
+        , 'Public Accountant'
+        , 4200
+        , 9000
+        );
+INSERT INTO hr.cargos VALUES 
+        ( 'SA_MAN'
+        , 'Sales Manager'
+        , 10000
+        , 20080
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'SA_REP'
+        , 'Sales Representative'
+        , 6000
+        , 12008
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'PU_MAN'
+        , 'Purchasing Manager'
+        , 8000
+        , 15000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'PU_CLERK'
+        , 'Purchasing Clerk'
+        , 2500
+        , 5500
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'ST_MAN'
+        , 'Stock Manager'
+        , 5500
+        , 8500
+        );
+INSERT INTO hr.cargos VALUES 
+        ( 'ST_CLERK'
+        , 'Stock Clerk'
+        , 2008
+        , 5000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'SH_CLERK'
+        , 'Shipping Clerk'
+        , 2500
+        , 5500
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'IT_PROG'
+        , 'Programmer'
+        , 4000
+        , 10000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'MK_MAN'
+        , 'Marketing Manager'
+        , 9000
+        , 15000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'MK_REP'
+        , 'Marketing Representative'
+        , 4000
+        , 9000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'HR_REP'
+        , 'Human Resources Representative'
+        , 4000
+        , 9000
+        );
+
+INSERT INTO hr.cargos VALUES 
+        ( 'PR_REP'
+        , 'Public Relations Representative'
+        , 4500
+        , 10500
+        );
 
 
--- Populando tabela cargoshistorico_cargos
+ --Populando tabela hr.empregados
 
-
-
---Populando tabela hr.empregados
 
 INSERT INTO hr.empregados VALUES 
         ( 100                                   --idhr.empregados
@@ -590,7 +718,7 @@ INSERT INTO hr.empregados VALUES
         , 'King'                                --sobrenome
         , 'SKING'                               --email
         , '515.123.4567'                        --telefone
-        , TO_DATE('17-06-2003', 'dd-MM-yyyy')   --data da contratação
+        , '17-06-2003'  --data da contratação
         , 'AD_PRES'                             --id do cargo
         , 24000                                 --Salário
         , NULL                                  --ID GERENTE
@@ -604,7 +732,7 @@ INSERT INTO hr.empregados VALUES
         , 'Kochhar'
         , 'NKOCHHAR'
         , '515.123.4568'
-        , TO_DATE('21-09-2005', 'dd-MM-yyyy')
+        , '21-09-2005'
         , 'AD_VP'
         , 17000
         , NULL
@@ -617,7 +745,7 @@ INSERT INTO hr.empregados VALUES
         , 'De Haan'
         , 'LDEHAAN'
         , '515.123.4569'
-        , TO_DATE('13-01-2001', 'dd-MM-yyyy')
+        ,  '13-01-2001' 
         , 'AD_VP'
         , 17000
         , NULL
@@ -630,7 +758,7 @@ INSERT INTO hr.empregados VALUES
         , 'Hunold'
         , 'AHUNOLD'
         , '590.423.4567'
-        , TO_DATE('03-01-2006', 'dd-MM-yyyy')
+        ,  '03-01-2006' 
         , 'IT_PROG'
         , 9000
         , NULL
@@ -643,7 +771,7 @@ INSERT INTO hr.empregados VALUES
         , 'Ernst'
         , 'BERNST'
         , '590.423.4568'
-        , TO_DATE('21-05-2007', 'dd-MM-yyyy')
+        ,  '21-05-2007' 
         , 'IT_PROG'
         , 6000
         , NULL
@@ -656,7 +784,7 @@ INSERT INTO hr.empregados VALUES
         , 'Austin'
         , 'DAUSTIN'
         , '590.423.4569'
-        , TO_DATE('25-06-2005', 'dd-MM-yyyy')
+        ,  '25-06-2005' 
         , 'IT_PROG'
         , 4800
         , NULL
@@ -669,7 +797,7 @@ INSERT INTO hr.empregados VALUES
         , 'Pataballa'
         , 'VPATABAL'
         , '590.423.4560'
-        , TO_DATE('05-02-2006', 'dd-MM-yyyy')
+        ,  '05-02-2006' 
         , 'IT_PROG'
         , 4800
         , NULL
@@ -682,7 +810,7 @@ INSERT INTO hr.empregados VALUES
         , 'Lorentz'
         , 'DLORENTZ'
         , '590.423.5567'
-        , TO_DATE('07-02-2007', 'dd-MM-yyyy')
+        ,  '07-02-2007' 
         , 'IT_PROG'
         , 4200
         , NULL
@@ -695,7 +823,7 @@ INSERT INTO hr.empregados VALUES
         , 'Greenberg'
         , 'NGREENBE'
         , '515.124.4569'
-        , TO_DATE('17-08-2002', 'dd-MM-yyyy')
+        ,  '17-08-2002' 
         , 'FI_MGR'
         , 12008
         , NULL
@@ -708,7 +836,7 @@ INSERT INTO hr.empregados VALUES
         , 'Faviet'
         , 'DFAVIET'
         , '515.124.4169'
-        , TO_DATE('16-08-2002', 'dd-MM-yyyy')
+        ,  '16-08-2002' 
         , 'FI_ACCOUNT'
         , 9000
         , NULL
@@ -721,7 +849,7 @@ INSERT INTO hr.empregados VALUES
         , 'Chen'
         , 'JCHEN'
         , '515.124.4269'
-        , TO_DATE('28-09-2005', 'dd-MM-yyyy')
+        ,  '28-09-2005' 
         , 'FI_ACCOUNT'
         , 8200
         , NULL
@@ -734,7 +862,7 @@ INSERT INTO hr.empregados VALUES
         , 'Sciarra'
         , 'ISCIARRA'
         , '515.124.4369'
-        , TO_DATE('30-09-2005', 'dd-MM-yyyy')
+        ,  '30-09-2005' 
         , 'FI_ACCOUNT'
         , 7700
         , NULL
@@ -747,7 +875,7 @@ INSERT INTO hr.empregados VALUES
         , 'Urman'
         , 'JMURMAN'
         , '515.124.4469'
-        , TO_DATE('07-03-2006', 'dd-MM-yyyy')
+        ,  '07-03-2006' 
         , 'FI_ACCOUNT'
         , 7800
         , NULL
@@ -760,7 +888,7 @@ INSERT INTO hr.empregados VALUES
         , 'Popp'
         , 'LPOPP'
         , '515.124.4567'
-        , TO_DATE('07-12-2007', 'dd-MM-yyyy')
+        ,  '07-12-2007' 
         , 'FI_ACCOUNT'
         , 6900
         , NULL
@@ -773,7 +901,7 @@ INSERT INTO hr.empregados VALUES
         , 'Raphaely'
         , 'DRAPHEAL'
         , '515.127.4561'
-        , TO_DATE('07-12-2002', 'dd-MM-yyyy')
+        ,  '07-12-2002' 
         , 'PU_MAN'
         , 11000
         , NULL
@@ -786,7 +914,7 @@ INSERT INTO hr.empregados VALUES
         , 'Khoo'
         , 'AKHOO'
         , '515.127.4562'
-        , TO_DATE('18-05-2003', 'dd-MM-yyyy')
+        ,  '18-05-2003' 
         , 'PU_CLERK'
         , 3100
         , NULL
@@ -799,7 +927,7 @@ INSERT INTO hr.empregados VALUES
         , 'Baida'
         , 'SBAIDA'
         , '515.127.4563'
-        , TO_DATE('24-12-2005', 'dd-MM-yyyy')
+        ,  '24-12-2005' 
         , 'PU_CLERK'
         , 2900
         , NULL
@@ -812,7 +940,7 @@ INSERT INTO hr.empregados VALUES
         , 'Tobias'
         , 'STOBIAS'
         , '515.127.4564'
-        , TO_DATE('24-07-2005', 'dd-MM-yyyy')
+        ,  '24-07-2005' 
         , 'PU_CLERK'
         , 2800
         , NULL
@@ -825,7 +953,7 @@ INSERT INTO hr.empregados VALUES
         , 'Himuro'
         , 'GHIMURO'
         , '515.127.4565'
-        , TO_DATE('15-11-2006', 'dd-MM-yyyy')
+        ,  '15-11-2006' 
         , 'PU_CLERK'
         , 2600
         , NULL
@@ -838,7 +966,7 @@ INSERT INTO hr.empregados VALUES
         , 'Colmenares'
         , 'KCOLMENA'
         , '515.127.4566'
-        , TO_DATE('10-08-2007', 'dd-MM-yyyy')
+        ,  '10-08-2007' 
         , 'PU_CLERK'
         , 2500
         , NULL
@@ -851,7 +979,7 @@ INSERT INTO hr.empregados VALUES
         , 'Weiss'
         , 'MWEISS'
         , '650.123.1234'
-        , TO_DATE('18-07-2004', 'dd-MM-yyyy')
+        ,  '18-07-2004' 
         , 'ST_MAN'
         , 8000
         , NULL
@@ -864,7 +992,7 @@ INSERT INTO hr.empregados VALUES
         , 'Fripp'
         , 'AFRIPP'
         , '650.123.2234'
-        , TO_DATE('10-04-2005', 'dd-MM-yyyy')
+        ,  '10-04-2005' 
         , 'ST_MAN'
         , 8200
         , NULL
@@ -877,7 +1005,7 @@ INSERT INTO hr.empregados VALUES
         , 'Kaufling'
         , 'PKAUFLIN'
         , '650.123.3234'
-        , TO_DATE('01-05-2003', 'dd-MM-yyyy')
+        ,  '01-05-2003' 
         , 'ST_MAN'
         , 7900
         , NULL
@@ -890,7 +1018,7 @@ INSERT INTO hr.empregados VALUES
         , 'Vollman'
         , 'SVOLLMAN'
         , '650.123.4234'
-        , TO_DATE('10-10-2005', 'dd-MM-yyyy')
+        ,  '10-10-2005' 
         , 'ST_MAN'
         , 6500
         , NULL
@@ -903,7 +1031,7 @@ INSERT INTO hr.empregados VALUES
         , 'Mourgos'
         , 'KMOURGOS'
         , '650.123.5234'
-        , TO_DATE('16-11-2007', 'dd-MM-yyyy')
+        ,  '16-11-2007' 
         , 'ST_MAN'
         , 5800
         , NULL
@@ -916,7 +1044,7 @@ INSERT INTO hr.empregados VALUES
         , 'Nayer'
         , 'JNAYER'
         , '650.124.1214'
-        , TO_DATE('16-07-2005', 'dd-MM-yyyy')
+        ,  '16-07-2005' 
         , 'ST_CLERK'
         , 3200
         , NULL
@@ -929,7 +1057,7 @@ INSERT INTO hr.empregados VALUES
         , 'Mikkilineni'
         , 'IMIKKILI'
         , '650.124.1224'
-        , TO_DATE('28-09-2006', 'dd-MM-yyyy')
+        ,  '28-09-2006' 
         , 'ST_CLERK'
         , 2700
         , NULL
@@ -942,7 +1070,7 @@ INSERT INTO hr.empregados VALUES
         , 'Landry'
         , 'JLANDRY'
         , '650.124.1334'
-        , TO_DATE('14-01-2007', 'dd-MM-yyyy')
+        ,  '14-01-2007' 
         , 'ST_CLERK'
         , 2400
         , NULL
@@ -955,7 +1083,7 @@ INSERT INTO hr.empregados VALUES
         , 'Markle'
         , 'SMARKLE'
         , '650.124.1434'
-        , TO_DATE('08-03-2008', 'dd-MM-yyyy')
+        ,  '08-03-2008' 
         , 'ST_CLERK'
         , 2200
         , NULL
@@ -968,7 +1096,7 @@ INSERT INTO hr.empregados VALUES
         , 'Bissot'
         , 'LBISSOT'
         , '650.124.5234'
-        , TO_DATE('20-08-2005', 'dd-MM-yyyy')
+        ,  '20-08-2005' 
         , 'ST_CLERK'
         , 3300
         , NULL
@@ -981,7 +1109,7 @@ INSERT INTO hr.empregados VALUES
         , 'Atkinson'
         , 'MATKINSO'
         , '650.124.6234'
-        , TO_DATE('30-10-2005', 'dd-MM-yyyy')
+        ,  '30-10-2005' 
         , 'ST_CLERK'
         , 2800
         , NULL
@@ -994,7 +1122,7 @@ INSERT INTO hr.empregados VALUES
         , 'Marlow'
         , 'JAMRLOW'
         , '650.124.7234'
-        , TO_DATE('16-02-2005', 'dd-MM-yyyy')
+        ,  '16-02-2005' 
         , 'ST_CLERK'
         , 2500
         , NULL
@@ -1007,7 +1135,7 @@ INSERT INTO hr.empregados VALUES
         , 'Olson'
         , 'TJOLSON'
         , '650.124.8234'
-        , TO_DATE('10-04-2007', 'dd-MM-yyyy')
+        ,  '10-04-2007' 
         , 'ST_CLERK'
         , 2100
         , NULL
@@ -1020,12 +1148,11 @@ INSERT INTO hr.empregados VALUES
         , 'Mallin'
         , 'JMALLIN'
         , '650.127.1934'
-        , TO_DATE('14-06-2004', 'dd-MM-yyyy')
+        ,  '14-06-2004' 
         , 'ST_CLERK'
         , 3300
         , NULL
         , 122
-        , 
         );
 
 INSERT INTO hr.empregados VALUES 
@@ -1034,7 +1161,7 @@ INSERT INTO hr.empregados VALUES
         , 'Rogers'
         , 'MROGERS'
         , '650.127.1834'
-        , TO_DATE('26-08-2006', 'dd-MM-yyyy')
+        ,  '26-08-2006' 
         , 'ST_CLERK'
         , 2900
         , NULL
@@ -1048,7 +1175,7 @@ INSERT INTO hr.empregados VALUES
         , 'Gee'
         , 'KGEE'
         , '650.127.1734'
-        , TO_DATE('12-12-2007', 'dd-MM-yyyy')
+        ,  '12-12-2007' 
         , 'ST_CLERK'
         , 2400
         , NULL
@@ -1062,7 +1189,7 @@ INSERT INTO hr.empregados VALUES
         , 'Philtanker'
         , 'HPHILTAN'
         , '650.127.1634'
-        , TO_DATE('06-02-2008', 'dd-MM-yyyy')
+        ,  '06-02-2008' 
         , 'ST_CLERK'
         , 2200
         , NULL
@@ -1076,7 +1203,7 @@ INSERT INTO hr.empregados VALUES
         , 'Ladwig'
         , 'RLADWIG'
         , '650.121.1234'
-        , TO_DATE('14-07-2003', 'dd-MM-yyyy')
+        ,  '14-07-2003' 
         , 'ST_CLERK'
         , 3600
         , NULL
@@ -1090,7 +1217,7 @@ INSERT INTO hr.empregados VALUES
         , 'Stiles'
         , 'SSTILES'
         , '650.121.2034'
-        , TO_DATE('26-10-2005', 'dd-MM-yyyy')
+        , '26-10-2005' 
         , 'ST_CLERK'
         , 3200
         , NULL
@@ -1104,7 +1231,7 @@ INSERT INTO hr.empregados VALUES
         , 'Seo'
         , 'JSEO'
         , '650.121.2019'
-        , TO_DATE('12-02-2006', 'dd-MM-yyyy')
+        ,  '12-02-2006' 
         , 'ST_CLERK'
         , 2700
         , NULL
@@ -1118,7 +1245,7 @@ INSERT INTO hr.empregados VALUES
         , 'Patel'
         , 'JPATEL'
         , '650.121.1834'
-        , TO_DATE('06-04-2006', 'dd-MM-yyyy')
+        ,  '06-04-2006' 
         , 'ST_CLERK'
         , 2500
         , NULL
@@ -1132,7 +1259,7 @@ INSERT INTO hr.empregados VALUES
         , 'Rajs'
         , 'TRAJS'
         , '650.121.8009'
-        , TO_DATE('17-10-2003', 'dd-MM-yyyy')
+        ,  '17-10-2003' 
         , 'ST_CLERK'
         , 3500
         , NULL
@@ -1146,7 +1273,7 @@ INSERT INTO hr.empregados VALUES
         , 'Davies'
         , 'CDAVIES'
         , '650.121.2994'
-        , TO_DATE('29-01-2005', 'dd-MM-yyyy')
+        ,  '29-01-2005' 
         , 'ST_CLERK'
         , 3100
         , NULL
@@ -1160,7 +1287,7 @@ INSERT INTO hr.empregados VALUES
         , 'Matos'
         , 'RMATOS'
         , '650.121.2874'
-        , TO_DATE('15-03-2006', 'dd-MM-yyyy')
+        ,  '15-03-2006' 
         , 'ST_CLERK'
         , 2600
         , NULL
@@ -1174,7 +1301,7 @@ INSERT INTO hr.empregados VALUES
         , 'Vargas'
         , 'PVARGAS'
         , '650.121.2004'
-        , TO_DATE('09-07-2006', 'dd-MM-yyyy')
+        ,  '09-07-2006' 
         , 'ST_CLERK'
         , 2500
         , NULL
@@ -1188,7 +1315,7 @@ INSERT INTO hr.empregados VALUES
         , 'Russell'
         , 'JRUSSEL'
         , '011.44.1344.429268'
-        , TO_DATE('01-10-2004', 'dd-MM-yyyy')
+        ,  '01-10-2004' 
         , 'SA_MAN'
         , 14000
         , .4
@@ -1201,7 +1328,7 @@ INSERT INTO hr.empregados VALUES
         , 'Partners'
         , 'KPARTNER'
         , '011.44.1344.467268'
-        , TO_DATE('05-01-2005', 'dd-MM-yyyy')
+        ,  '05-01-2005' 
         , 'SA_MAN'
         , 13500
         , .3
@@ -1214,7 +1341,7 @@ INSERT INTO hr.empregados VALUES
         , 'Errazuriz'
         , 'AERRAZUR'
         , '011.44.1344.429278'
-        , TO_DATE('10-03-2005', 'dd-MM-yyyy')
+        ,  '10-03-2005' 
         , 'SA_MAN'
         , 12000
         , .3
@@ -1227,7 +1354,7 @@ INSERT INTO hr.empregados VALUES
         , 'Cambrault'
         , 'GCAMBRAU'
         , '011.44.1344.619268'
-        , TO_DATE('15-10-2007', 'dd-MM-yyyy')
+        ,  '15-10-2007' 
         , 'SA_MAN'
         , 11000
         , .3
@@ -1241,7 +1368,7 @@ INSERT INTO hr.empregados VALUES
         , 'Zlotkey'
         , 'EZLOTKEY'
         , '011.44.1344.429018'
-        , TO_DATE('29-01-2008', 'dd-MM-yyyy')
+        ,  '29-01-2008' 
         , 'SA_MAN'
         , 10500
         , .2
@@ -1255,7 +1382,7 @@ INSERT INTO hr.empregados VALUES
         , 'Tucker'
         , 'PTUCKER'
         , '011.44.1344.129268'
-        , TO_DATE('30-01-2005', 'dd-MM-yyyy')
+        ,  '30-01-2005' 
         , 'SA_REP'
         , 10000
         , .3
@@ -1269,7 +1396,7 @@ INSERT INTO hr.empregados VALUES
         , 'Bernstein'
         , 'DBERNSTE'
         , '011.44.1344.345268'
-        , TO_DATE('24-03-2005', 'dd-MM-yyyy')
+        ,  '24-03-2005' 
         , 'SA_REP'
         , 9500
         , .25
@@ -1283,7 +1410,7 @@ INSERT INTO hr.empregados VALUES
         , 'Hall'
         , 'PHALL'
         , '011.44.1344.478968'
-        , TO_DATE('20-08-2005', 'dd-MM-yyyy')
+        ,  '20-08-2005' 
         , 'SA_REP'
         , 9000
         , .25
@@ -1297,7 +1424,7 @@ INSERT INTO hr.empregados VALUES
         , 'Olsen'
         , 'COLSEN'
         , '011.44.1344.498718'
-        , TO_DATE('30-03-2006', 'dd-MM-yyyy')
+        ,  '30-03-2006' 
         , 'SA_REP'
         , 8000
         , .2
@@ -1311,7 +1438,7 @@ INSERT INTO hr.empregados VALUES
         , 'Cambrault'
         , 'NCAMBRAU'
         , '011.44.1344.987668'
-        , TO_DATE('09-12-2006', 'dd-MM-yyyy')
+        ,  '09-12-2006' 
         , 'SA_REP'
         , 7500
         , .2
@@ -1325,7 +1452,7 @@ INSERT INTO hr.empregados VALUES
         , 'Tuvault'
         , 'OTUVAULT'
         , '011.44.1344.486508'
-        , TO_DATE('23-11-2007', 'dd-MM-yyyy')
+        ,  '23-11-2007' 
         , 'SA_REP'
         , 7000
         , .15
@@ -1339,7 +1466,7 @@ INSERT INTO hr.empregados VALUES
         , 'King'
         , 'JKING'
         , '011.44.1345.429268'
-        , TO_DATE('30-01-2004', 'dd-MM-yyyy')
+        ,  '30-01-2004' 
         , 'SA_REP'
         , 10000
         , .35
@@ -1353,7 +1480,7 @@ INSERT INTO hr.empregados VALUES
         , 'Sully'
         , 'PSULLY'
         , '011.44.1345.929268'
-        , TO_DATE('04-03-2004', 'dd-MM-yyyy')
+        ,  '04-03-2004' 
         , 'SA_REP'
         , 9500
         , .35
@@ -1367,7 +1494,7 @@ INSERT INTO hr.empregados VALUES
         , 'McEwen'
         , 'AMCEWEN'
         , '011.44.1345.829268'
-        , TO_DATE('01-08-2004', 'dd-MM-yyyy')
+        ,  '01-08-2004' 
         , 'SA_REP'
         , 9000
         , .35
@@ -1381,7 +1508,7 @@ INSERT INTO hr.empregados VALUES
         , 'Smith'
         , 'LSMITH'
         , '011.44.1345.729268'
-        , TO_DATE('10-03-2005', 'dd-MM-yyyy')
+        ,  '10-03-2005' 
         , 'SA_REP'
         , 8000
         , .3
@@ -1395,7 +1522,7 @@ INSERT INTO hr.empregados VALUES
         , 'Doran'
         , 'LDORAN'
         , '011.44.1345.629268'
-        , TO_DATE('15-12-2005', 'dd-MM-yyyy')
+        ,  '15-12-2005' 
         , 'SA_REP'
         , 7500
         , .3
@@ -1409,7 +1536,7 @@ INSERT INTO hr.empregados VALUES
         , 'Sewall'
         , 'SSEWALL'
         , '011.44.1345.529268'
-        , TO_DATE('03-11-2006', 'dd-MM-yyyy')
+        ,  '03-11-2006' 
         , 'SA_REP'
         , 7000
         , .25
@@ -1423,7 +1550,7 @@ INSERT INTO hr.empregados VALUES
         , 'Vishney'
         , 'CVISHNEY'
         , '011.44.1346.129268'
-        , TO_DATE('11-11-2005', 'dd-MM-yyyy')
+        ,  '11-11-2005' 
         , 'SA_REP'
         , 10500
         , .25
@@ -1437,7 +1564,7 @@ INSERT INTO hr.empregados VALUES
         , 'Greene'
         , 'DGREENE'
         , '011.44.1346.229268'
-        , TO_DATE('19-03-2007', 'dd-MM-yyyy')
+        ,  '19-03-2007' 
         , 'SA_REP'
         , 9500
         , .15
@@ -1451,7 +1578,7 @@ INSERT INTO hr.empregados VALUES
         , 'Marvins'
         , 'MMARVINS'
         , '011.44.1346.329268'
-        , TO_DATE('24-01-2008', 'dd-MM-yyyy')
+        ,  '24-01-2008' 
         , 'SA_REP'
         , 7200
         , .10
@@ -1465,7 +1592,7 @@ INSERT INTO hr.empregados VALUES
         , 'Lee'
         , 'DLEE'
         , '011.44.1346.529268'
-        , TO_DATE('23-02-2008', 'dd-MM-yyyy')
+        ,  '23-02-2008' 
         , 'SA_REP'
         , 6800
         , .1
@@ -1479,7 +1606,7 @@ INSERT INTO hr.empregados VALUES
         , 'Ande'
         , 'SANDE'
         , '011.44.1346.629268'
-        , TO_DATE('24-03-2008', 'dd-MM-yyyy')
+        ,  '24-03-2008' 
         , 'SA_REP'
         , 6400
         , .10
@@ -1493,7 +1620,7 @@ INSERT INTO hr.empregados VALUES
         , 'Banda'
         , 'ABANDA'
         , '011.44.1346.729268'
-        , TO_DATE('21-04-2008', 'dd-MM-yyyy')
+        ,  '21-04-2008' 
         , 'SA_REP'
         , 6200
         , .10
@@ -1507,7 +1634,7 @@ INSERT INTO hr.empregados VALUES
         , 'Ozer'
         , 'LOZER'
         , '011.44.1343.929268'
-        , TO_DATE('11-03-2005', 'dd-MM-yyyy')
+        ,  '11-03-2005' 
         , 'SA_REP'
         , 11500
         , .25
@@ -1521,7 +1648,7 @@ INSERT INTO hr.empregados VALUES
         , 'Bloom'
         , 'HBLOOM'
         , '011.44.1343.829268'
-        , TO_DATE('23-03-2006', 'dd-MM-yyyy')
+        ,  '23-03-2006' 
         , 'SA_REP'
         , 10000
         , .20
@@ -1535,7 +1662,7 @@ INSERT INTO hr.empregados VALUES
         , 'Fox'
         , 'TFOX'
         , '011.44.1343.729268'
-        , TO_DATE('24-01-2006', 'dd-MM-yyyy')
+        ,  '24-01-2006' 
         , 'SA_REP'
         , 9600
         , .20
@@ -1549,7 +1676,7 @@ INSERT INTO hr.empregados VALUES
         , 'Smith'
         , 'WSMITH'
         , '011.44.1343.629268'
-        , TO_DATE('23-02-2007', 'dd-MM-yyyy')
+        ,  '23-02-2007' 
         , 'SA_REP'
         , 7400
         , .15
@@ -1563,7 +1690,7 @@ INSERT INTO hr.empregados VALUES
         , 'Bates'
         , 'EBATES'
         , '011.44.1343.529268'
-        , TO_DATE('24-03-2007', 'dd-MM-yyyy')
+        ,  '24-03-2007' 
         , 'SA_REP'
         , 7300
         , .15
@@ -1577,7 +1704,7 @@ INSERT INTO hr.empregados VALUES
         , 'Kumar'
         , 'SKUMAR'
         , '011.44.1343.329268'
-        , TO_DATE('21-04-2008', 'dd-MM-yyyy')
+        ,  '21-04-2008' 
         , 'SA_REP'
         , 6100
         , .10
@@ -1591,7 +1718,7 @@ INSERT INTO hr.empregados VALUES
         , 'Abel'
         , 'EABEL'
         , '011.44.1644.429267'
-        , TO_DATE('11-05-2004', 'dd-MM-yyyy')
+        ,  '11-05-2004' 
         , 'SA_REP'
         , 11000
         , .30
@@ -1605,7 +1732,7 @@ INSERT INTO hr.empregados VALUES
         , 'Hutton'
         , 'AHUTTON'
         , '011.44.1644.429266'
-        , TO_DATE('19-03-2005', 'dd-MM-yyyy')
+        ,  '19-03-2005' 
         , 'SA_REP'
         , 8800
         , .25
@@ -1619,7 +1746,7 @@ INSERT INTO hr.empregados VALUES
         , 'Taylor'
         , 'JTAYLOR'
         , '011.44.1644.429265'
-        , TO_DATE('24-03-2006', 'dd-MM-yyyy')
+        ,  '24-03-2006' 
         , 'SA_REP'
         , 8600
         , .20
@@ -1633,7 +1760,7 @@ INSERT INTO hr.empregados VALUES
         , 'Livingston'
         , 'JLIVINGS'
         , '011.44.1644.429264'
-        , TO_DATE('23-04-2006', 'dd-MM-yyyy')
+        ,  '23-04-2006' 
         , 'SA_REP'
         , 8400
         , .20
@@ -1647,7 +1774,7 @@ INSERT INTO hr.empregados VALUES
         , 'Grant'
         , 'KGRANT'
         , '011.44.1644.429263'
-        , TO_DATE('24-05-2007', 'dd-MM-yyyy')
+        ,  '24-05-2007' 
         , 'SA_REP'
         , 7000
         , .15
@@ -1661,7 +1788,7 @@ INSERT INTO hr.empregados VALUES
         , 'Johnson'
         , 'CJOHNSON'
         , '011.44.1644.429262'
-        , TO_DATE('04-01-2008', 'dd-MM-yyyy')
+        ,  '04-01-2008' 
         , 'SA_REP'
         , 6200
         , .10
@@ -1675,7 +1802,7 @@ INSERT INTO hr.empregados VALUES
         , 'Taylor'
         , 'WTAYLOR'
         , '650.507.9876'
-        , TO_DATE('24-01-2006', 'dd-MM-yyyy')
+        ,  '24-01-2006' 
         , 'SH_CLERK'
         , 3200
         , NULL
@@ -1689,7 +1816,7 @@ INSERT INTO hr.empregados VALUES
         , 'Fleaur'
         , 'JFLEAUR'
         , '650.507.9877'
-        , TO_DATE('23-02-2006', 'dd-MM-yyyy')
+        ,  '23-02-2006' 
         , 'SH_CLERK'
         , 3100
         , NULL
@@ -1703,7 +1830,7 @@ INSERT INTO hr.empregados VALUES
         , 'Sullivan'
         , 'MSULLIVA'
         , '650.507.9878'
-        , TO_DATE('21-06-2007', 'dd-MM-yyyy')
+        ,  '21-06-2007' 
         , 'SH_CLERK'
         , 2500
         , NULL
@@ -1717,7 +1844,7 @@ INSERT INTO hr.empregados VALUES
         , 'Geoni'
         , 'GGEONI'
         , '650.507.9879'
-        , TO_DATE('03-02-2008', 'dd-MM-yyyy')
+        ,  '03-02-2008' 
         , 'SH_CLERK'
         , 2800
         , NULL
@@ -1731,7 +1858,7 @@ INSERT INTO hr.empregados VALUES
         , 'Sarchand'
         , 'NSARCHAN'
         , '650.509.1876'
-        , TO_DATE('27-01-2004', 'dd-MM-yyyy')
+        ,  '27-01-2004' 
         , 'SH_CLERK'
         , 4200
         , NULL
@@ -1745,7 +1872,7 @@ INSERT INTO hr.empregados VALUES
         , 'Bull'
         , 'ABULL'
         , '650.509.2876'
-        , TO_DATE('20-02-2005', 'dd-MM-yyyy')
+        ,  '20-02-2005' 
         , 'SH_CLERK'
         , 4100
         , NULL
@@ -1759,7 +1886,7 @@ INSERT INTO hr.empregados VALUES
         , 'Dellinger'
         , 'JDELLING'
         , '650.509.3876'
-        , TO_DATE('24-06-2006', 'dd-MM-yyyy')
+        ,  '24-06-2006' 
         , 'SH_CLERK'
         , 3400
         , NULL
@@ -1773,7 +1900,7 @@ INSERT INTO hr.empregados VALUES
         , 'Cabrio'
         , 'ACABRIO'
         , '650.509.4876'
-        , TO_DATE('07-02-2007', 'dd-MM-yyyy')
+        ,  '07-02-2007' 
         , 'SH_CLERK'
         , 3000
         , NULL
@@ -1787,7 +1914,7 @@ INSERT INTO hr.empregados VALUES
         , 'Chung'
         , 'KCHUNG'
         , '650.505.1876'
-        , TO_DATE('14-06-2005', 'dd-MM-yyyy')
+        ,  '14-06-2005' 
         , 'SH_CLERK'
         , 3800
         , NULL
@@ -1801,7 +1928,7 @@ INSERT INTO hr.empregados VALUES
         , 'Dilly'
         , 'JDILLY'
         , '650.505.2876'
-        , TO_DATE('13-08-2005', 'dd-MM-yyyy')
+        ,  '13-08-2005' 
         , 'SH_CLERK'
         , 3600
         , NULL
@@ -1815,7 +1942,7 @@ INSERT INTO hr.empregados VALUES
         , 'Gates'
         , 'TGATES'
         , '650.505.3876'
-        , TO_DATE('11-07-2006', 'dd-MM-yyyy')
+        ,  '11-07-2006' 
         , 'SH_CLERK'
         , 2900
         , NULL
@@ -1829,7 +1956,7 @@ INSERT INTO hr.empregados VALUES
         , 'Perkins'
         , 'RPERKINS'
         , '650.505.4876'
-        , TO_DATE('19-12-2007', 'dd-MM-yyyy')
+        ,  '19-12-2007' 
         , 'SH_CLERK'
         , 2500
         , NULL
@@ -1843,7 +1970,7 @@ INSERT INTO hr.empregados VALUES
         , 'Bell'
         , 'SBELL'
         , '650.501.1876'
-        , TO_DATE('04-02-2004', 'dd-MM-yyyy')
+        ,  '04-02-2004' 
         , 'SH_CLERK'
         , 4000
         , NULL
@@ -1857,7 +1984,7 @@ INSERT INTO hr.empregados VALUES
         , 'Everett'
         , 'BEVERETT'
         , '650.501.2876'
-        , TO_DATE('03-03-2005', 'dd-MM-yyyy')
+        ,  '03-03-2005' 
         , 'SH_CLERK'
         , 3900
         , NULL
@@ -1871,7 +1998,7 @@ INSERT INTO hr.empregados VALUES
         , 'McCain'
         , 'SMCCAIN'
         , '650.501.3876'
-        , TO_DATE('01-07-2006', 'dd-MM-yyyy')
+        ,  '01-07-2006' 
         , 'SH_CLERK'
         , 3200
         , NULL
@@ -1885,7 +2012,7 @@ INSERT INTO hr.empregados VALUES
         , 'Jones'
         , 'VJONES'
         , '650.501.4876'
-        , TO_DATE('17-03-2007', 'dd-MM-yyyy')
+        ,  '17-03-2007' 
         , 'SH_CLERK'
         , 2800
         , NULL
@@ -1899,7 +2026,7 @@ INSERT INTO hr.empregados VALUES
         , 'Walsh'
         , 'AWALSH'
         , '650.507.9811'
-        , TO_DATE('24-04-2006', 'dd-MM-yyyy')
+        ,  '24-04-2006' 
         , 'SH_CLERK'
         , 3100
         , NULL
@@ -1913,7 +2040,7 @@ INSERT INTO hr.empregados VALUES
         , 'Feeney'
         , 'KFEENEY'
         , '650.507.9822'
-        , TO_DATE('23-05-2006', 'dd-MM-yyyy')
+        ,  '23-05-2006' 
         , 'SH_CLERK'
         , 3000
         , NULL
@@ -1927,7 +2054,7 @@ INSERT INTO hr.empregados VALUES
         , 'OConnell'
         , 'DOCONNEL'
         , '650.507.9833'
-        , TO_DATE('21-06-2007', 'dd-MM-yyyy')
+        ,  '21-06-2007' 
         , 'SH_CLERK'
         , 2600
         , NULL
@@ -1941,7 +2068,7 @@ INSERT INTO hr.empregados VALUES
         , 'Grant'
         , 'DGRANT'
         , '650.507.9844'
-        , TO_DATE('13-01-2008', 'dd-MM-yyyy')
+        ,  '13-01-2008' 
         , 'SH_CLERK'
         , 2600
         , NULL
@@ -1955,7 +2082,7 @@ INSERT INTO hr.empregados VALUES
         , 'Whalen'
         , 'JWHALEN'
         , '515.123.4444'
-        , TO_DATE('17-09-2003', 'dd-MM-yyyy')
+        ,  '17-09-2003' 
         , 'AD_ASST'
         , 4400
         , NULL
@@ -1969,7 +2096,7 @@ INSERT INTO hr.empregados VALUES
         , 'Hartstein'
         , 'MHARTSTE'
         , '515.123.5555'
-        , TO_DATE('17-02-2004', 'dd-MM-yyyy')
+        ,  '17-02-2004' 
         , 'MK_MAN'
         , 13000
         , NULL
@@ -1983,7 +2110,7 @@ INSERT INTO hr.empregados VALUES
         , 'Fay'
         , 'PFAY'
         , '603.123.6666'
-        , TO_DATE('17-08-2005', 'dd-MM-yyyy')
+        ,  '17-08-2005' 
         , 'MK_REP'
         , 6000
         , NULL
@@ -1997,7 +2124,7 @@ INSERT INTO hr.empregados VALUES
         , 'Mavris'
         , 'SMAVRIS'
         , '515.123.7777'
-        , TO_DATE('07-06-2002', 'dd-MM-yyyy')
+        ,  '07-06-2002' 
         , 'HR_REP'
         , 6500
         , NULL
@@ -2011,7 +2138,7 @@ INSERT INTO hr.empregados VALUES
         , 'Baer'
         , 'HBAER'
         , '515.123.8888'
-        , TO_DATE('07-06-2002', 'dd-MM-yyyy')
+        ,  '07-06-2002' 
         , 'PR_REP'
         , 10000
         , NULL
@@ -2025,7 +2152,7 @@ INSERT INTO hr.empregados VALUES
         , 'Higgins'
         , 'SHIGGINS'
         , '515.123.8080'
-        , TO_DATE('07-06-2002', 'dd-MM-yyyy')
+        ,  '07-06-2002' 
         , 'AC_MGR'
         , 12008
         , NULL
@@ -2039,7 +2166,7 @@ INSERT INTO hr.empregados VALUES
         , 'Gietz'
         , 'WGIETZ'
         , '515.123.8181'
-        , TO_DATE('07-06-2002', 'dd-MM-yyyy')
+        ,  '07-06-2002' 
         , 'AC_ACCOUNT'
         , 8300
         , NULL
@@ -2052,84 +2179,85 @@ ALTER TABLE hr.empregados DROP COLUMN id_empregado_delete; --
 -- Populando tabela auxiliar hr.historico_cargos 
 INSERT INTO hr.historico_cargos
 VALUES (102                                     --PFK_id_empregado
-       , TO_DATE('13-01-2001', 'dd-MM-yyyy')    --data inicial
-       , TO_DATE('24-07-2006', 'dd-MM-yyyy')    --data final
+       ,  '13-01-2001'     --data inicial
+       ,  '24-07-2006'     --data final
        , 'IT_PROG'                              --id_cargo
        , 60);                                   --id_departamento
 
 INSERT INTO hr.historico_cargos
 VALUES (101
-       , TO_DATE('21-09-1997', 'dd-MM-yyyy')
-       , TO_DATE('27-10-2001', 'dd-MM-yyyy')
+       ,  '21-09-1997' 
+       ,  '27-10-2001' 
        , 'AC_ACCOUNT'
        , 110);
 
 INSERT INTO hr.historico_cargos
 VALUES (101
-       , TO_DATE('28-10-2001', 'dd-MM-yyyy')
-       , TO_DATE('15-03-2005', 'dd-MM-yyyy')
+       ,  '28-10-2001' 
+       ,  '15-03-2005' 
        , 'AC_MGR'
        , 110);
 
 INSERT INTO hr.historico_cargos
 VALUES (201
-       , TO_DATE('17-02-2004', 'dd-MM-yyyy')
-       , TO_DATE('19-12-2007', 'dd-MM-yyyy')
+       ,  '17-02-2004' 
+       ,  '19-12-2007' 
        , 'MK_REP'
        , 20);
 
 INSERT INTO hr.historico_cargos
 VALUES  (114
-        , TO_DATE('24-03-2006', 'dd-MM-yyyy')
-        , TO_DATE('31-12-2007', 'dd-MM-yyyy')
+        ,  '24-03-2006' 
+        ,  '31-12-2007' 
         , 'ST_CLERK'
         , 50
         );
 
 INSERT INTO hr.historico_cargos
 VALUES  (122
-        , TO_DATE('01-01-2007', 'dd-MM-yyyy')
-        , TO_DATE('31-12-2007', 'dd-MM-yyyy')
+        ,  '01-01-2007' 
+        ,  '31-12-2007' 
         , 'ST_CLERK'
         , 50
         );
 
 INSERT INTO hr.historico_cargos
 VALUES  (200
-        , TO_DATE('17-09-1995', 'dd-MM-yyyy')
-        , TO_DATE('17-06-2001', 'dd-MM-yyyy')
+        ,  '17-09-1995' 
+        ,  '17-06-2001' 
         , 'AD_ASST'
         , 90
         );
 
 INSERT INTO hr.historico_cargos
 VALUES  (176
-        , TO_DATE('24-03-2006', 'dd-MM-yyyy')
-        , TO_DATE('31-12-2006', 'dd-MM-yyyy')
+        ,  '24-03-2006' 
+        ,  '31-12-2006' 
         , 'SA_REP'
         , 80
         );
 
 INSERT INTO hr.historico_cargos
 VALUES  (176
-        , TO_DATE('01-01-2007', 'dd-MM-yyyy')
-        , TO_DATE('31-12-2007', 'dd-MM-yyyy')
+        ,  '01-01-2007' 
+        ,  '31-12-2007' 
         , 'SA_MAN'
         , 80
         );
 
 INSERT INTO hr.historico_cargos
 VALUES  (200
-        , TO_DATE('01-07-2002', 'dd-MM-yyyy')
-        , TO_DATE('31-12-2006', 'dd-MM-yyyy')
+        ,  '01-07-2002' 
+        ,  '31-12-2006' 
         , 'AC_ACCOUNT'
         , 90
         );
 
 
 
--- Ativando restrições de integridade da tabela hr.departamentos
+-- Ativando restrições de integridade da tabela hr.departamentos e hr_empregados
 ALTER TABLE hr.departamentos ENABLE TRIGGER ALL;
 
+ALTER TABLE hr.empregados ENABLE TRIGGER ALL;
 
 
