@@ -79,9 +79,9 @@ CREATE UNIQUE INDEX paises_idx
 CREATE TABLE hr.localizacoes (
                 id_localizacao INTEGER NOT NULL,
                 endereco VARCHAR(50),
-                cep VARCHAR(12) NOT NULL,
+                cep VARCHAR(12) ,
                 cidade VARCHAR(50),
-                uf VARCHAR(25) NOT NULL,
+                uf VARCHAR(25),
                 id_pais CHAR(2) NOT NULL,
                 CONSTRAINT id_localizacao PRIMARY KEY (id_localizacao)
 );
@@ -118,13 +118,14 @@ CREATE UNIQUE INDEX cargos_idx
 CREATE TABLE hr.empregados (
                 pk_id_empregado INTEGER NOT NULL,
                 nome VARCHAR(75) NOT NULL,
+                sobrenome VARCHAR(75),
                 email VARCHAR(35) NOT NULL,
                 telefone VARCHAR(20),
                 data_contratacao DATE NOT NULL,
                 id_cargo VARCHAR(10) NOT NULL,
                 salario NUMERIC(8,2),
-                comissao NUMERIC(4,2),
                 id_supervisor INTEGER,
+                comissao NUMERIC(4,2),
                 CONSTRAINT pk_id_empregado PRIMARY KEY (pk_id_empregado)
 );
 COMMENT ON TABLE hr.empregados IS 'Informações dos empregados';
@@ -151,8 +152,8 @@ CREATE UNIQUE INDEX empregados_idx1
 CREATE TABLE hr.departamentos (
                 id_departamento INTEGER NOT NULL,
                 nome VARCHAR(50) NOT NULL,
-                fk_id_localizacao INTEGER NOT NULL,
-                id_gerente INTEGER NOT NULL,
+                id_gerente INTEGER ,
+                fk_id_localizacao INTEGER,
                 CONSTRAINT id_departamento PRIMARY KEY (id_departamento)
 );
 COMMENT ON TABLE hr.departamentos IS 'Informações sobre os departamentos da empresa';
@@ -229,7 +230,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE hr.departamentos ADD CONSTRAINT empregados_departamentos_fk
+ALTER TABLE hr.departamentos ADD CONSTRAINT empregados_gerente_fk
 FOREIGN KEY (id_gerente)
 REFERENCES hr.empregados (pk_id_empregado)
 ON DELETE NO ACTION
