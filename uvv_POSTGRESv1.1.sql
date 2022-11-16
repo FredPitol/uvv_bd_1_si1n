@@ -2546,4 +2546,6 @@ ALTER TABLE  departamentos ENABLE TRIGGER ALL;
 
 ALTER TABLE  empregados ENABLE TRIGGER ALL;
 
+ALTER TABLE historico_cargos desa
+
 
