@@ -124,7 +124,7 @@ CREATE TABLE  empregados (
                 salario NUMERIC(8,2),
                 id_supervisor INTEGER,
                 comissao NUMERIC(8,2), 
-                id_empregado_delete INTEGER, -- atributo para receber inputs do schema hr e depois ser deletado
+                id_departamento_empregado INTEGER, -- atributo para receber inputs do schema hr e depois ser deletado
                 CONSTRAINT pk_id_empregado PRIMARY KEY (pk_id_empregado))
                 ;
 COMMENT ON TABLE  empregados IS 'Informações dos empregados';
@@ -250,9 +250,9 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-
 ALTER TABLE  departamentos DISABLE TRIGGER ALL;
--- Populando dados da tabela regioes 
+ALTER TABLE  historico_empregados DISABLE TRIGGER ALL;
+ALTER TABLE  empregados DISABLE TRIGGER ALL;
 INSERT INTO regioes VALUES 
         ( 1
         , 'Europe' 
