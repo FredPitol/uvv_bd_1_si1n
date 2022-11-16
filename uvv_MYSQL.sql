@@ -9,7 +9,7 @@ CREATE USER fredericopitol IDENTIFIED BY 'frederico';
 GRANT CREATE, ALTER, DROP, REFERENCES, DELETE, UPDATE, INDEX, INSERT, SELECT 
 ON uvv.* TO fredericopitol;
 -- Se conectando ao mysql com meu user e senha.
--- system mysql -u fredericopitol -pfrederico
+system mysql -u fredericopitol -pfrederico
 
 -- Criando banco de dados
 CREATE DATABASE uvv
