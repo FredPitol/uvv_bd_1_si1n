@@ -250,6 +250,12 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
+
+
+ALTER TABLE  departamentos DISABLE TRIGGER ALL;
+ALTER TABLE  historico_empregados DISABLE TRIGGER ALL;
+ALTER TABLE  empregados DISABLE TRIGGER ALL;
+
 --Populando tabela  regioes
 INSERT INTO  regioes VALUES 
         ( 1 , 'Europe' );
@@ -638,8 +644,7 @@ já que os dados de  empregados ainda não foram adicionados
 */
 
 	
-ALTER TABLE  departamentos DISABLE TRIGGER ALL;
-ALTER TABLE  empregados DISABLE TRIGGER ALL;
+
 INSERT INTO  departamentos VALUES 
         ( 10                --id departamento
         , 'Administration'  --nome
@@ -2512,4 +2517,4 @@ ALTER TABLE  departamentos ENABLE TRIGGER ALL;
 
 ALTER TABLE  empregados ENABLE TRIGGER ALL;
 
-
+ALTER TABLE  historico_cargos ENABLE TRIGGER ALL;
