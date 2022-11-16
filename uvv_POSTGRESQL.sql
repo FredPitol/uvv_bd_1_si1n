@@ -1374,7 +1374,7 @@ INSERT INTO  empregados VALUES
         , 'Marlow'
         , 'JAMRLOW'
         , '650.124.7234'
-        ,   '2005-02-16' 
+        , '2005-02-16' 
         , 'ST_CLERK'
         , 2500
         , NULL
