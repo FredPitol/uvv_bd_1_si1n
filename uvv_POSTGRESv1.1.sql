@@ -10,7 +10,7 @@ CREATE USER fredericopitol WITH
 SUPERUSER
 ENCRYPTED PASSWORD 'frederico'
 ;
--- Criando banco de dados
+--Criando banco de dados
 CREATE DATABASE uvv
 WITH 
 OWNER = fredericopitol
@@ -251,7 +251,7 @@ ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
 ALTER TABLE  departamentos DISABLE TRIGGER ALL;
-ALTER TABLE  historico_empregados DISABLE TRIGGER ALL;
+ALTER TABLE  historico_cargos DISABLE TRIGGER ALL;
 ALTER TABLE  empregados DISABLE TRIGGER ALL;
 INSERT INTO regioes VALUES 
         ( 1
@@ -2546,6 +2546,6 @@ ALTER TABLE  departamentos ENABLE TRIGGER ALL;
 
 ALTER TABLE  empregados ENABLE TRIGGER ALL;
 
-ALTER TABLE historico_cargos desa
+ALTER TABLE historico_cargos ENABLE TRIGGER ALL;
 
 
