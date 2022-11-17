@@ -33,7 +33,7 @@ https://www.linkedin.com/in/frederico-pitol/
 
 ---------------------------
 
-### Existem algumas correções que foram desfeita, falta editar essa seção  
+### Existem algumas correções que foram desfeitas, falta editar essa seção  
 
 ## Primeiros Passos
 Foi passado um modelo lógico com alguns erros na sua estrutura
