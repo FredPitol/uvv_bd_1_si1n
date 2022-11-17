@@ -1,4 +1,4 @@
-# uvv_bd_1_si1n
+#uvv_bd_1_si1n
  #Trabalho da disciplina banco de dados 1 
 ######Curso de sistemas de informação noturno da faculdade de vila velha. 
 
@@ -31,7 +31,7 @@ estar em um departamento.
  - **cep** da tabela **localizacoes** teve o atributo **NOT NULL** adicionado, já que toda localização possui cep e por ser uma informação de extrema relevancia dentro de um cadastro de endereços.
  - **id_gerente** 
  - **id_departamento** teve o atributo **NOT NULL** adicionado, já que para um funcionário ter um histórico de cargo ele precisa estar alocado em um departamento
- - Troquei o tipo do atributo **comissão** da tabela **empregados** para resolver conflitos da base de dados que foi inserida. 
+ 
 
 ### Mudança de cardinalidade
  - A cardinalidade do relacionamento da tabela **departamento** para a tabela **empregados** foi trocado excluida já que temos um relacionamento
