@@ -12,8 +12,9 @@ Esse projeto ainda está em desenvolvimento, tão quanto esse README, irei descr
 
 
 ## Modelo lógico com erros
-![Modelo logico para banco de dados](https://github.com/Frepitol/uvv_bd_1_si1n/blob/main/assets/hr.png)
+![Modelo lógico para banco de dados](https://github.com/Frepitol/uvv_bd_1_si1n/blob/main/assets/hr.png)
 ### Modelo lógico corrigido
+![Modelo lógico corrigido](https://github.com/Frepitol/uvv_bd_1_si1n/blob/main/assets/projeto_logico_corrigido.png)
 
 ### Tecnologias utilizadas
 - Postgres
