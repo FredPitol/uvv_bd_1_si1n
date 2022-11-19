@@ -3,7 +3,7 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Frepitol/uvv_bd_1_si1n/blob/main/licence) 
 
 ## Sobre o projeto
-### Professor: Abrantes Araujo Silva Filho @https://github.com/computacaoraiz
+### Professor: Abrantes Araujo Silva Filho https://github.com/computacaoraiz
 ### Matéria do curso de sistemas de informação da universidade de Vila velha
 
 Foi passado um modelo lógico com alguns erros na sua estrutura. 
