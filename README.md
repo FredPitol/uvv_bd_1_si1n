@@ -22,12 +22,13 @@ Esse projeto ainda está em desenvolvimento, tão quanto esse README, irei descr
 - PostgreSQL
 - Mariadb/MySql
 
+## clonar repositório
 
 ```bash
-# clonar repositório
+
 git clone https://github.com/Frepitol/uvv_bd_1_si1n
 
-```
+``` 
 
 
 ## Coisas que aprendi
