@@ -30,25 +30,6 @@ git clone https://github.com/Frepitol/uvv_bd_1_si1n
 
 ``` 
 
-
-## Coisas que aprendi
-
-Tivemos uma diferença de formato das datas, na hora de popular os dados no MYSQL, utilizei REGEX do VSCODE com o seguinte código.
-
-1. **Regex**
- - Tive de trocar inúmeros inputs de dados que estavam com os nomes das tabelas em inglês, procurei uma solução que poderia resolver
- esse problema e para que nas próximas ocasiões em que me deparasse com esse tipo de problema, tivesse uma ferramenta que 
- automatizasse o processo me poupando tempo de trabalho
-```
-['](\d{2})[-](\d{2})[-](\d{4})['] -- Localizando as datas no formato DD-MM-AAAA
-
-'$3-$2-$1' -- Alterando formato para AAAA-MM-dd
-```
-2. **Linguagem markdown**
-
-3. **Diferenças da implementação entre os SGBDS Postgres e MySQL**
-
-
 # Autor
 
 Frederico Bisi Freire Pitol
